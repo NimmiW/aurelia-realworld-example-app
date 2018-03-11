@@ -1,0 +1,20 @@
+<template>
+  <require from="../../resources/elements/accountlist"></require>
+
+  <div class="home-page">
+
+    <div class="banner">
+      <div class="container">
+        <h1 class="logo-font">Love</h1>
+        <p>Lovely this</p>
+      </div>
+    </div>
+
+    <div class="container page">
+      
+      <h1>hello</h1>
+      <account-list articles.bind="articles" total-pages.bind="totalPages" page-number.bind="pageNumber"
+            current-page.bind="currentPage" set-page-cb.call="setPageTo(pageNumber)"></account-list>
+    </div>
+  </div>
+</template>

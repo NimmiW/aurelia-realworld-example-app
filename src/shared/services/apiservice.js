@@ -34,6 +34,16 @@ export class ApiService {
       .then(status)
       .catch(parseError)
   }
+
+  get2(path, params) {
+    const options = {
+      method: 'GET',
+      headers: this.setHeaders()
+    };
+    return this.http.fetch(`${config.mocky_url}${path}?${qs.stringify(params)}`,options)
+      .then(status)
+      .catch(parseError)
+  }
   
   put(path, body = {}) {
     const options = {

@@ -18,7 +18,8 @@ export class App {
       {route: ['settings'], moduleId: 'components/settings/settingscomponent', name:'settings', title: 'Settings'},
       {route: [':name'], moduleId: 'components/profile/profilecomponent', name:'profile', title: 'Profile'},
       {route: ['editor/:slug?'], moduleId: 'components/editor/editorcomponent', name:'editor', title: 'Editor'},
-      {route: ['article/:slug'], moduleId: 'components/article/articlecomponent', name:'article', title: 'article'}
+      {route: ['article/:slug'], moduleId: 'components/article/articlecomponent', name:'article', title: 'article'},
+      {route: ['accounts'], moduleId: 'components/account/accountcomponent', name:'article', title: 'article'}
     ]);
     
     this.router = router;
