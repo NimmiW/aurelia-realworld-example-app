@@ -9,7 +9,7 @@ export class AccountService {
   }
   
   getList(type, params) {
-    return this.apiService.get2('/5aa4c9b62e00006f07a403c2', params)
+    return this.apiService.get2('/5aa55f4f2e00003614a40454', params)
   }
   
   get(slug) {

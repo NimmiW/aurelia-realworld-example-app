@@ -25,7 +25,6 @@ export class AccountComponent {
 
   attached() {
     this.getAccounts();
-
   }
   
   getAccounts() {

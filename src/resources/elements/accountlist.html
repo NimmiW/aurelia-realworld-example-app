@@ -1,5 +1,9 @@
 <template>
-  <div class="article-preview" show.bind="articles.length === 0">
-    No accounts are here... yet.
+  <require from="./accountpreview"></require>
+
+  <div class="article-preview" show.bind="accounts.length === 0">
+    No articles are here... yet.
   </div>
+
+  <account-preview repeat.for="account of accounts" account.bind="account"></account-preview>
 </template>

@@ -19,7 +19,9 @@ export class App {
       {route: [':name'], moduleId: 'components/profile/profilecomponent', name:'profile', title: 'Profile'},
       {route: ['editor/:slug?'], moduleId: 'components/editor/editorcomponent', name:'editor', title: 'Editor'},
       {route: ['article/:slug'], moduleId: 'components/article/articlecomponent', name:'article', title: 'article'},
-      {route: ['accounts'], moduleId: 'components/account/accountcomponent', name:'article', title: 'article'}
+      {route: ['accounts'], moduleId: 'components/account/accountcomponent', name:'accounts', title: 'accounts'},
+      {route: ['updatebalance'], moduleId: 'components/account/accountcomponent', name:'updatebalance', title: 'updatebalance'},
+      {route: ['reports'], moduleId: 'components/account/accountcomponent', name:'reports', title: 'reports'}
     ]);
     
     this.router = router;

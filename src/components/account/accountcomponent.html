@@ -5,16 +5,13 @@
 
     <div class="banner">
       <div class="container">
-        <h1 class="logo-font">Love</h1>
-        <p>Lovely this</p>
+        <h1 class="logo-font">Account Balances</h1>
+        <p>The summary of the account balances to date.</p>
       </div>
     </div>
 
     <div class="container page">
-      
-      <h1>hello</h1>
-      <account-list articles.bind="articles" total-pages.bind="totalPages" page-number.bind="pageNumber"
-            current-page.bind="currentPage" set-page-cb.call="setPageTo(pageNumber)"></account-list>
+      <account-list accounts.bind="accounts"></account-list>
     </div>
   </div>
 </template>
