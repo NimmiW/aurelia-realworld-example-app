@@ -1,33 +1,31 @@
 import {BindingEngine} from 'aurelia-framework';
 import {inject} from 'aurelia-dependency-injection';
 import {SharedState} from '../../shared/state/sharedstate';
-import {AccountService} from "../../shared/services/accountservice";
+import {ReportService} from "../../shared/services/reportservice";
 
-@inject(SharedState, BindingEngine,AccountService)
+@inject(SharedState, BindingEngine,ReportService)
 export class ReportComponent {
-  reportData = [];
+  reportdata = [];
   
-  constructor(sharedState, bindingEngine, accountService) {
+  constructor(sharedState, bindingEngine, reportService) {
     this.sharedState = sharedState;
     this.bindingEngine = bindingEngine;
-    this.accountService = accountService;
-    this.reportdata = [{name:"nimmi"}];
+    this.reportService = reportService;
   }
 
   attached() {
-    this.getAccounts();
-    console.log(this.reportdata)
+    this.getReport();
   }
   
-  getAccounts() {
+  getReport() {
     let params = {
       year: this.year
     };
 
-    this.accountService.getList(params)
+    this.reportService.getReport(params)
       .then(response => {
-        this.accounts = response.accounts;
-        console.log(this.accounts);
+        this.reportdata = response.months;
+        console.log(this.reportdata);
       })
   }
 
