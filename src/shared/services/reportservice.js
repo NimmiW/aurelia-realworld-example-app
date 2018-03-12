@@ -9,7 +9,7 @@ export class ReportService {
   }
   
   getReport(params) {
-    return this.apiService.get2('/5aa5e408310000fb07e7134a', params)
+    return this.apiService.get2('/5aa6878d3100002b33e71683', params)
   }
   
   get(slug) {
