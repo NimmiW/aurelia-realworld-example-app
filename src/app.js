@@ -20,7 +20,7 @@ export class App {
       {route: ['editor/:slug?'], moduleId: 'components/editor/editorcomponent', name:'editor', title: 'Editor'},
       {route: ['article/:slug'], moduleId: 'components/article/articlecomponent', name:'article', title: 'article'},
       {route: ['', 'accounts'], moduleId: 'components/account/accountcomponent', name:'accounts', title: 'accounts'},
-      {route: ['updatebalance'], moduleId: 'components/account/accountcomponent', name:'updatebalance', title: 'updatebalance'},
+      {route: ['updatebalance'], moduleId: 'components/updatebalance/updatebalance', name:'updatebalance', title: 'updatebalance'},
       {route: ['reports'], moduleId: 'components/report/reportcomponent', name:'reports', title: 'reports'}
     ]);
     
