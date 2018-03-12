@@ -11,12 +11,12 @@ export class ReportComponent {
     this.sharedState = sharedState;
     this.bindingEngine = bindingEngine;
     this.accountService = accountService;
-    this.reportData = [{name:"nimmi"}];
+    this.reportdata = [{name:"nimmi"}];
   }
 
   attached() {
     this.getAccounts();
-    console.log(this.reportData)
+    console.log(this.reportdata)
   }
   
   getAccounts() {
