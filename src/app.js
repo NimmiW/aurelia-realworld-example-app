@@ -21,7 +21,7 @@ export class App {
       {route: ['article/:slug'], moduleId: 'components/article/articlecomponent', name:'article', title: 'article'},
       {route: ['', 'accounts'], moduleId: 'components/account/accountcomponent', name:'accounts', title: 'accounts'},
       {route: ['updatebalance'], moduleId: 'components/account/accountcomponent', name:'updatebalance', title: 'updatebalance'},
-      {route: ['reports'], moduleId: 'components/account/accountcomponent', name:'reports', title: 'reports'}
+      {route: ['reports'], moduleId: 'components/report/reportcomponent', name:'reports', title: 'reports'}
     ]);
     
     this.router = router;

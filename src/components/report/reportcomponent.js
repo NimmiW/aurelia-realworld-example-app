@@ -4,25 +4,27 @@ import {SharedState} from '../../shared/state/sharedstate';
 import {AccountService} from "../../shared/services/accountservice";
 
 @inject(SharedState, BindingEngine,AccountService)
-export class AccountComponent {
-  accounts = [];
+export class ReportComponent {
+  reportData = [];
   
   constructor(sharedState, bindingEngine, accountService) {
     this.sharedState = sharedState;
     this.bindingEngine = bindingEngine;
     this.accountService = accountService;
+    this.reportData = [{name:"nimmi"}];
   }
 
   attached() {
     this.getAccounts();
+    console.log(this.reportData)
   }
   
   getAccounts() {
     let params = {
-      limit: this.limit
+      year: this.year
     };
 
-    this.accountService.getList(this.shownList, params)
+    this.accountService.getList(params)
       .then(response => {
         this.accounts = response.accounts;
         console.log(this.accounts);

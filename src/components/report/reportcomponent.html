@@ -1,0 +1,18 @@
+<template>
+  <require from="../../resources/elements/reportpreview"></require>
+
+  <div class="home-page">
+
+    <div class="banner">
+      <div class="container">
+        <h1 class="logo-font">Account Balances</h1>
+        <p>The summary of the account balances to date.</p>
+      </div>
+    </div>
+
+    <div class="container page">
+      
+      <report-preview reportData.bind="reportData"></report-preview>
+    </div>
+  </div>
+</template>
