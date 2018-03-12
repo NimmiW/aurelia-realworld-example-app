@@ -17,8 +17,6 @@ export class App {
       {route: ['register'], moduleId: 'components/auth/authcomponent', name:'register', title: 'Sign up'},
       {route: ['settings'], moduleId: 'components/settings/settingscomponent', name:'settings', title: 'Settings'},
       {route: [':name'], moduleId: 'components/profile/profilecomponent', name:'profile', title: 'Profile'},
-      {route: ['editor/:slug?'], moduleId: 'components/editor/editorcomponent', name:'editor', title: 'Editor'},
-      {route: ['article/:slug'], moduleId: 'components/article/articlecomponent', name:'article', title: 'article'},
       {route: ['', 'accounts'], moduleId: 'components/account/accountcomponent', name:'accounts', title: 'accounts'},
       {route: ['updatebalance'], moduleId: 'components/updatebalance/updatebalance', name:'updatebalance', title: 'updatebalance'},
       {route: ['reports'], moduleId: 'components/report/reportcomponent', name:'reports', title: 'reports'}
