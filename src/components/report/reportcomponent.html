@@ -13,7 +13,9 @@
       <div class="form-group">
         <label for="year">Enter an the year to generate the report...</label>
         <input type="number" class="form-control" value.bind="year" placeholder="year " min="1900" max="2100">
-        <button click.delegate="getReport()">Generate Report</button>
+      </div>
+      <div class="form-group">
+          <button class="btn" click.delegate="getReport()">Generate Report</button>
       </div>
       <canvas ref="chart" ></canvas>
     </div>
