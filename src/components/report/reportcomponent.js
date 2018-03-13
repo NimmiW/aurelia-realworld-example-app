@@ -4,7 +4,7 @@ import {SharedState} from '../../shared/state/sharedstate';
 import {ReportService} from "../../shared/services/reportservice";
 import {Chart} from 'node_modules/chart.js/dist/Chart.js';
 import moment from 'moment';
-import lodash from 'lodash'
+import lodash from 'lodash';
 
 @inject(SharedState, BindingEngine,ReportService)
 export class ReportComponent {

@@ -2,6 +2,7 @@ import {BindingEngine} from 'aurelia-framework';
 import {inject} from 'aurelia-dependency-injection';
 import {SharedState} from '../../shared/state/sharedstate';
 import {AccountService} from "../../shared/services/accountservice";
+import moment from 'moment';
 
 @inject(SharedState, BindingEngine,AccountService)
 export class AccountComponent {
@@ -14,17 +15,21 @@ export class AccountComponent {
   }
 
   attached() {
-    this.getAccounts();
+    this.getBalance();
   }
   
-  getAccounts() {
+  getBalance() {
     let params = {
-      limit: this.limit
+      year: moment().year(),
+      month: moment().month()
     };
 
-    this.accountService.getList(this.shownList, params)
+    console.log(params)
+
+    this.accountService.getBalance(params)
       .then(response => {
-        this.accounts = response.accounts;
+        this.accounts = response;
+
         console.log(this.accounts);
       })
   }

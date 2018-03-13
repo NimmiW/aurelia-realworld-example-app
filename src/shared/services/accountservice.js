@@ -8,8 +8,8 @@ export class AccountService {
     this.apiService = apiService;
   }
   
-  getList(type, params) {
-    return this.apiService.get2('/5aa55f4f2e00003614a40454', params)
+  getBalance(params) {
+    return this.apiService.get('/Balance',params)
   }
   
   get(slug) {
