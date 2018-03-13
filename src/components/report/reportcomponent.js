@@ -4,15 +4,18 @@ import {SharedState} from '../../shared/state/sharedstate';
 import {ReportService} from "../../shared/services/reportservice";
 import {Chart} from 'node_modules/chart.js/dist/Chart.js';
 import moment from 'moment';
+import lodash from 'lodash'
 
 @inject(SharedState, BindingEngine,ReportService)
 export class ReportComponent {
-  reportdata = [];
+  reportdata = {};
   labels = [
     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
   ]
-  
+
+  //accountNames = ['RandD', 'Canteen', 'CEOCar', 'Marketing', 'ParkingFines']
+
   lineOptions = {
     title:{
       display:true,
@@ -56,7 +59,7 @@ export class ReportComponent {
     this.bindingEngine = bindingEngine;
     this.reportService = reportService;
     this.year = moment().year();
-    console.log(this.year)
+    this.reportdata = {};
   }
 
   attached() {
@@ -71,9 +74,9 @@ export class ReportComponent {
 
     this.reportService.getReport(params)
       .then(response => {
-        this.reportdata = response;
-        console.log('this.reportdata')
-        console.log(this.reportdata);
+
+        console.log(response)
+
         this.lineData = {
           labels: this.labels,
           datasets: [
@@ -95,7 +98,7 @@ export class ReportComponent {
             },
             {
               label: 'CEO’s car',
-              data: response['CEOcar'],
+              data: response['CEOCar'],
               backgroundColor: 'rgba(0, 0, 255, 0.2)',
               borderColor: 'rgba(0,0,255,1)',
               borderWidth: 1,
@@ -130,28 +133,5 @@ export class ReportComponent {
         });
       })
   }
-
-
-
-/*
-  constructor() {
-    this.message = 'Hello World!';
-    
-    
-  }
-  
-  attached() {
-
-    let ctx = this.chart;  
-
-    var myChart = new Chart(ctx, {
-      type: 'line',
-      data: this.lineData,
-      options: this.lineOptions,
-    });
-    //this.makeLineChart();
-  }
-  
-*/
 
 }

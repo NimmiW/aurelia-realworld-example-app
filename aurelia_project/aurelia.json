@@ -98,7 +98,8 @@
             "main": "./moment.js",
             "path": "../node_modules/moment",
             "resources": []
-          }
+          },
+          "lodash"
         ]
       }
     ],

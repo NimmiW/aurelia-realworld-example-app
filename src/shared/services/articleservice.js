@@ -1,19 +1,20 @@
+
 import {inject} from 'aurelia-dependency-injection';
 import {ApiService} from './apiservice';
 
 @inject(ApiService)
-export class ReportService {
+export class ArticleService {
 
   constructor(apiService) {
     this.apiService = apiService;
   }
   
-  getReport(params) {
-    return this.apiService.get('/Report', params)
+  getList(type, params) {
+    return this.apiService.get('/articles' + ((type === 'feed') ? '/feed' : ''), params)
   }
   
   get(slug) {
-    return this.apiService.get2('/5aa5e408310000fb07e7134a' + slug)
+    return this.apiService.get('/articles/' + slug)
       .then(data => data.article)
   }
   
