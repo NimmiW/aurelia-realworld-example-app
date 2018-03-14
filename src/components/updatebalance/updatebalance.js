@@ -7,7 +7,16 @@ export class UpdateBalance {
     console.log('File upload page');
   }
 
-  
+  attached(){
+    httpClient.get('http://jsonplaceholder.typicode.com/posts')
+          .then(data => {        
+          this.UserRecords = JSON.parse(data.response);
+          console.log(this.UserRecords)
+        });
+    
+  }
+
+
 
   upload(file){
     if (file) {
@@ -22,6 +31,19 @@ export class UpdateBalance {
         this.emptyFile = false;
         console.log(file);
         console.log('File uploaded successfully');
+        /*console.log(this.htmlElement)
+        var html = this.htmlElement
+        var reader = new FileReader();
+        
+        reader.readAsDataURL(file);
+        reader.onload = function(event){
+            var csv = event.target.result;
+            console.log(csv)
+        };*/
+
+
+        
+
       }
     } else {
       this.success = false;
