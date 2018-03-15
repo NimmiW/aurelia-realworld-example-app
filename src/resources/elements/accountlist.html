@@ -1,17 +1,27 @@
 <template>
-  <require from="./accountpreview"></require>
 
   <div class="article-preview" show.bind="accounts.length === 0">
-    No balances are shown... yet.
+    Loading...
   </div>
 
-  <div class="container">
-    <div class="row">
-      <account-preview class="col-sm-4" repeat.for="account of accounts" account.bind="account"></account-preview>
-    </div>
-    <div class="row">
-      
-    </div>
+  <div class="container" show.bind="accounts.length !== 0">
+      <table id="mytable" class="table table-bordred table-striped">
+                   
+          <thead>
+            <th>Account Name</th>
+            <th>Account Balance</th>
+          </thead>
+          <tbody>
+            
+          <tr repeat.for="account of accounts">
+            <td>${account.accountName}</td>
+            <td>${account.amount}</td>
+          </tr>
+
+        </tbody>
+    
+      </table>
+
   </div>
   
 </template>

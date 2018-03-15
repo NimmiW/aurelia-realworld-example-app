@@ -17,6 +17,10 @@
       <div class="form-group">
           <button class="btn" click.delegate="getReport()">Generate Report</button>
       </div>
+
+      <div class="article-preview" show.bind="!reportdata">
+        Loading...
+      </div>
       <canvas ref="chart" ></canvas>
     </div>
   </div>

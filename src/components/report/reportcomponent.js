@@ -8,7 +8,7 @@ import lodash from 'lodash';
 
 @inject(SharedState, BindingEngine,ReportService)
 export class ReportComponent {
-  reportdata = {};
+  reportdata = null;
   labels = [
     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
@@ -59,7 +59,6 @@ export class ReportComponent {
     this.bindingEngine = bindingEngine;
     this.reportService = reportService;
     this.year = moment().year();
-    this.reportdata = {};
   }
 
   attached() {
@@ -67,6 +66,8 @@ export class ReportComponent {
   }
   
   getReport() {
+    this.reportdata = null
+
     let params = {
       year: this.year
     };
@@ -74,7 +75,7 @@ export class ReportComponent {
 
     this.reportService.getReport(params)
       .then(response => {
-
+        this.reportdata = response;
         console.log(response)
 
         this.lineData = {

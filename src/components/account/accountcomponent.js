@@ -12,26 +12,31 @@ export class AccountComponent {
     this.sharedState = sharedState;
     this.bindingEngine = bindingEngine;
     this.accountService = accountService;
+    this.year = moment().year();
+    this.month = moment().month();
   }
 
   attached() {
-    this.getBalance();
+    this.getBalance(this.year, this.month);
   }
   
-  getBalance() {
-    let params = {
-      year: moment().year(),
-      month: moment().month()
-    };
-
-    console.log(params)
-
-    this.accountService.getBalance(params)
-      .then(response => {
-        this.accounts = response;
-
-        console.log(this.accounts);
-      })
+  getBalance(year, month) {
+    if(year && month) {
+      let params = {
+        year: year,
+        month: month
+      };
+  
+      console.log(params)
+  
+      this.accountService.getBalance(params)
+        .then(response => {
+          this.accounts = response;
+          this.monthString =  moment(month+1, 'MM').format('MMMM');
+          console.log(this.accounts);
+        })
+    }
+    
   }
 
 }
