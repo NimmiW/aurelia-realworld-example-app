@@ -54,7 +54,7 @@ account balance overview tool. There are 5 accounts in Jondell Corp and they are
 https://github.com/jadhavajay/aurelia-realworld-example-app
 
 **My Repo:**
-ffds
+https://github.com/NimmiW/aurelia-realworld-example-app
 
 **Complemeted Level**
 About 60 percent of the workload of the assignment was completed.
