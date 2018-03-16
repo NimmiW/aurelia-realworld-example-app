@@ -4,7 +4,6 @@ This codebase was created to demonstrate a fully fledged fullstack application b
 
 
 
-
 # How it works
 
 Created with aurelia-cli
@@ -21,7 +20,7 @@ and Navigate to `http://localhost:9000/`.
 The app will automatically reload if you change any of the source files.
 
 ### Building the project
-Run `au build` to build the project. The build artifacts will be stored in the `scripts/` directory. Use the `--env prod` flag for a production build.
+Run `au build` to build the project. The build artifacts will be stored in the `scripts/` directory.
 
 ## Functionality overview
 
@@ -48,10 +47,8 @@ account balance overview tool. There are 5 accounts in Jondell Corp and they are
 - reports page
     - report could be generated given the month and the year
 
-
-
-**Got insights from:**
-https://github.com/jadhavajay/aurelia-realworld-example-app
+**Note**
+I have forked from  https://github.com/jadhavajay/aurelia-realworld-example-app repo and developed this for the required specification by the Adra development test assignment.
 
 **My Repo:**
 https://github.com/NimmiW/aurelia-realworld-example-app
