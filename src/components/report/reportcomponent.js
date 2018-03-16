@@ -76,7 +76,6 @@ export class ReportComponent {
     this.reportService.getReport(params)
       .then(response => {
         this.reportdata = response;
-        console.log(response)
 
         this.lineData = {
           labels: this.labels,

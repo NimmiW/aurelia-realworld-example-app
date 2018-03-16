@@ -23,8 +23,6 @@ export class TransactionService {
   }
   
   save(transaction) {
-    console.log('service')
-    console.log(transaction);
     if (transaction.slug) {
       // If we're updating an existing transaction
       return this.apiService.put('/transactions/' + transaction.slug, {transaction: transaction})

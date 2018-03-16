@@ -6,6 +6,21 @@ import moment from 'moment';
 @inject(TransactionService, AccountService)
 export class UpdateBalance {
   transactions = [];
+  months = [
+    { id:0, name:"January"},
+    { id:1, name:"February"},
+    { id:2, name:"March"},
+    { id:3, name:"April"},
+    { id:4, name:"May"},
+    { id:5, name:"June"},
+    { id:6, name:"July"},
+    { id:7, name:"August"},
+    { id:8, name:"September"},
+    { id:9, name:"October"},
+    { id:10, name:"November"},
+    { id:11, name:"December"}
+    
+  ]
   constructor(transactionService, accountService){
     this.transactionService = transactionService;
     this.accountService = accountService;
@@ -24,13 +39,12 @@ export class UpdateBalance {
     this.accountService.getAllAccounts()
         .then(response => {
           this.accountList = response;
-          console.log(this.accountList);
         })
   }
 
   getAll(year, month) {
 
-    if(year && month) {
+
       this.year = year;
       this.month = month;
       let params = {
@@ -40,14 +54,13 @@ export class UpdateBalance {
 
       this.transactions = []
   
-      console.log(params)
   
       this.transactionService.getAll(params)
         .then(response => {
           this.transactions = response;
           this.monthString =  moment(month+1, 'MM').format('MMMM');
         })
-    }
+
     
   }
 
@@ -65,17 +78,16 @@ export class UpdateBalance {
         transaction: transaction
       }
 
-      console.log('lol')
+
 
       this.transactionService.save(params).then(response => {
         this.getAll(this.year, this.month)
       },err => {
         console.log(err)
       });
-
-    } else {
-      console.log('no')
     }
+
+
   }
 
   deleteTransaction(transactionId){
