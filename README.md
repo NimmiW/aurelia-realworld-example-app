@@ -56,7 +56,7 @@ https://github.com/NimmiW/aurelia-realworld-example-app
 **The Backend API for this could be found at:**
 https://github.com/NimmiW/ABVWebApi
 
-**This ABVWebApi hosted at:**
+**The Backend API is hosted at:**
 https://abvwebapi.azurewebsites.net/
 
 
@@ -64,6 +64,7 @@ https://abvwebapi.azurewebsites.net/
 About 60 percent of the workload of the assignment was completed.
 
 **ToDos**
+- Host Aurelia app in an azure app service
 - Role-based Authentication
 - Excel Sheet update part
 - Unit Testing Testing
