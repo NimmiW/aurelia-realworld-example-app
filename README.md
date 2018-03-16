@@ -10,7 +10,13 @@ Created with aurelia-cli
 
 # Getting started
 
-Make sure you have [Node](https://nodejs.org/) and [Yarn](https://yarnpkg.com/) installed. Then run 
+Make sure you have [Node](https://nodejs.org/) and [Yarn](https://yarnpkg.com/) installed. 
+
+Clone the project
+
+`git clone https://github.com/NimmiW/aurelia-realworld-example-app.git`
+
+Then run 
 ```
 yarn install
 au run --watch
@@ -18,6 +24,22 @@ au run --watch
 and Navigate to `http://localhost:9000/`. 
 
 The app will automatically reload if you change any of the source files.
+
+Please note if you get any issue in adding node modules, please do the following steps:
+
+Delete node_modules folder
+
+Re-run
+ ```
+yarn install
+au run --watch
+```
+
+or
+```
+npm install
+au run --watch
+```
 
 ### Building the project
 Run `au build` to build the project. The build artifacts will be stored in the `scripts/` directory.
