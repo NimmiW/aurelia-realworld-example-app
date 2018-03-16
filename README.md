@@ -42,7 +42,7 @@ account balance overview tool. There are 5 accounts in Jondell Corp and they are
 - Home page (URL: /#/ )
     - List of th balances of this month
 
-- updatebalance oage
+- updatebalance page
     - The Balances of this month could be updated
 
 - reports page
