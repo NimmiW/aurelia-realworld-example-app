@@ -1,9 +1,10 @@
 import {inject} from 'aurelia-dependency-injection';
 import {TransactionService} from "../../shared/services/transactionservice";
+import {SharedState} from '../../shared/state/sharedstate';
 import {AccountService} from "../../shared/services/accountservice";
 import moment from 'moment';
 
-@inject(TransactionService, AccountService)
+@inject(TransactionService, AccountService, SharedState)
 export class UpdateBalance {
   transactions = [];
   months = [
@@ -21,9 +22,10 @@ export class UpdateBalance {
     { id:11, name:"December"}
     
   ]
-  constructor(transactionService, accountService){
+  constructor(transactionService, accountService, sharedState){
     this.transactionService = transactionService;
     this.accountService = accountService;
+    this.sharedState = sharedState;
     this.success = false;
     this.fail = false;
     this.year = moment().year();
@@ -31,8 +33,10 @@ export class UpdateBalance {
   }
 
   attached(){
-    this.getAllAccounts()
-    this.getAll(this.year, this.month)
+    if(this.sharedState.currentUser.role=='ADMIN'){
+      this.getAllAccounts();
+      this.getAll(this.year, this.month);
+    }
   }
 
   getAllAccounts(){

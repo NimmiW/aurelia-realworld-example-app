@@ -17,7 +17,10 @@ export class AccountComponent {
   }
 
   attached() {
-    this.getBalance(this.year, this.month);
+    if(this.sharedState.currentUser.role=='USER'){
+      this.getBalance(this.year, this.month);
+    }
+    
   }
   
   getBalance(year, month) {

@@ -8,5 +8,5 @@ export function status(response) {
 
 export function parseError(error) {
   if (!(error instanceof Error))
-    return new Promise((resolve, reject) => reject(error.json()))
+    return new Promise((resolve, reject) => reject(error))
 }

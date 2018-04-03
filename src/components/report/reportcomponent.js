@@ -62,7 +62,10 @@ export class ReportComponent {
   }
 
   attached() {
-    this.getReport();
+    if(this.sharedState.currentUser.role=='ADMIN'){
+      this.getReport();
+    }
+    
   }
   
   getReport() {

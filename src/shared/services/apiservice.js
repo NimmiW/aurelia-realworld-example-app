@@ -16,15 +16,17 @@ export class ApiService {
   setHeaders() {
     const headersConfig = {
       'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      //'Content-Type':'application/x-www-form-urlencoded',
+      'Accept': 'application/json',
+      //'Access-Control-Allow-Headers': '*',
+      //'Access-Control-Allow-Origin': '*'
     };
-  
     if (this.jwtService.getToken()) {
-      headersConfig['Authorization'] = `Token ${this.jwtService.getToken()}`;
+      headersConfig['Authorization'] = `Bearer ${this.jwtService.getToken()}`;
     }
     return new Headers(headersConfig);
   }
-  
+
   get(path, params) {
     const options = {
       method: 'GET',
@@ -34,17 +36,7 @@ export class ApiService {
       .then(status)
       .catch(parseError)
   }
-
-  get2(path, params) {
-    const options = {
-      method: 'GET',
-      headers: this.setHeaders()
-    };
-    return this.http.fetch(`${config.mocky_url}${path}?${qs.stringify(params)}`,options)
-      .then(status)
-      .catch(parseError)
-  }
-  
+ 
   put(path, body = {}) {
     const options = {
       method: 'PUT',
@@ -60,11 +52,31 @@ export class ApiService {
     const options = {
       method: 'POST',
       headers: this.setHeaders(),
+      //mode: "no-cors",
       body: json(body)
     };
     return this.http.fetch(`${config.api_url}${path}`,options)
       .then(status)
       .catch(parseError)
+  }
+
+  postForLogin(path, body = {}) {
+    return this.http.fetch(config.api_url+'/token', {
+      method: 'POST',
+      contentType: 'application/x-www-form-urlencoded',
+      //crossDomain: true,
+      //mode: 'cors',
+      body: 'grant_type=password&userName='+body.username+'&password='+body.password
+    })
+      .then(data => {
+        data = data.json()
+        return data
+      })
+      .catch(error => {
+        return "no token error"
+
+      });
+
   }
   
   delete(path) {

@@ -5,11 +5,13 @@
     <div class="banner">
       <div class="container">
         <h1 class="logo-font">Update Balances</h1>
-        <p>Udate balances of the accounts.</p>
+        <p if.bind="!sharedState.isAuthenticated">Please Sign with your credentials to view to the Account blances of this month</p>
+        <p if.bind="sharedState.currentUser.role!='ADMIN'">You are not allowed to do actions in this page.</p>
+        <p if.bind="sharedState.currentUser.role=='ADMIN'">Udate balances of the accounts.</p>
       </div>
     </div>
 
-    <div class="container page">
+    <div class="container page" if.bind="sharedState.currentUser.role=='ADMIN'">
 
       <form>
 
@@ -49,9 +51,6 @@
             <th>Month</th>
             <th>Year</th>
             <th>Updated Time</th>
-            <th>
-              <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#editModal">Add+</button>
-            </th>
           </thead>
           <tbody>
 
@@ -75,7 +74,7 @@
                 </select>
               </td>
               <td>
-                <input type="number" class="form-control" value.bind="newAmount" placeholder="year ">
+                <input type="number" class="form-control" value.bind="newAmount" placeholder="Amount">
               </td>
               <td>
                 <button class="btn btn-success btn-xs" click.delegate="addTransaction()">Add+</button>

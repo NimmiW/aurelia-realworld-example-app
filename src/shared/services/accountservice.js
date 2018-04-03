@@ -9,11 +9,11 @@ export class AccountService {
   }
   
   getBalance(params) {
-    return this.apiService.get('/Balance',params)
+    return this.apiService.get('/api/Balance',params)
   }
 
   getAllAccounts(){
-    return this.apiService.get('/Accounts/')
+    return this.apiService.get('/api/BusinessAccounts/')
   }
   
 

@@ -26,6 +26,6 @@ export class App {
   }
   
   attached() {
-    this.userService.populate();
+    //this.userService.populate();
   }
 }

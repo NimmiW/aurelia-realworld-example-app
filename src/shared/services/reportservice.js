@@ -9,6 +9,6 @@ export class ReportService {
   }
   
   getReport(params) {
-    return this.apiService.get('/Report', params)
+    return this.apiService.get('/api/Report', params)
   }
 }

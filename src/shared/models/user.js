@@ -6,6 +6,7 @@ export class User {
     this.username = '';
     this.bio = '';
     this.image = '';
+    this.role = '';
   }
   
 }
