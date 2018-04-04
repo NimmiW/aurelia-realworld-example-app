@@ -115,21 +115,13 @@ export class UpdateBalance {
     console.log(disp.innerText)
     this.convertTextToArray(disp.innerText);
     console.log(this.excelData);
-    let month = this.excelData[0][1]
-    let year = this.excelData[1][1]
-    let RandD = this.excelData[3][1]
-    let Canteen = this.excelData[4][1]
-    let CEOCar = this.excelData[5][1]
-    let Marketing = this.excelData[6][1]
-    let ParkingFines = this.excelData[7][1]
-
-    console.log('month : ' + month)
-    console.log('year : ' + year)
-    console.log('RandD : ' + RandD)
-    console.log('Canteen : ' + Canteen)
-    console.log('CEOCar : ' + CEOCar)
-    console.log('Marketing : ' + Marketing)
-    console.log('ParkingFines : ' + ParkingFines)
+    let month = this.excelData[0][1]-1;
+    let year = this.excelData[1][1]-1;
+    let RandD = this.excelData[3][1];
+    let Canteen = this.excelData[4][1];
+    let CEOCar = this.excelData[5][1];
+    let Marketing = this.excelData[6][1];
+    let ParkingFines = this.excelData[7][1];
 
     let postDate = {
       month,
@@ -143,20 +135,17 @@ export class UpdateBalance {
 
     this.transactionService.saveExcelBalanceData(postDate)
     .then(data => {
-      console.log(data)
-      console.log('data enetered');
+      this.getAll(year, month)
     })
+    
 
   }
 
-
-
   getAsText(files) {
-		let disp = document.getElementById('fileDisplayArea');
+    let disp = document.getElementById('fileDisplayArea');
+    disp.innerText = '';
     if (window.FileReader) {
-      let excelData = '';
-      var reader = new FileReader();
-  
+      let reader = new FileReader();
       reader.onload = function(e) {
         disp.innerText = reader.result;
       }
@@ -164,27 +153,20 @@ export class UpdateBalance {
     } else {
         alert('FileReader are not supported in this browser.');
     }
-
   }
 
   convertTextToArray(text) {
-    var allTextLines = text.split(/\r\n|\n/);
-    var lines = [];
-    for (var i=0; i<allTextLines.length; i++) {
-        var data = allTextLines[i].split(',');
-            var tarr = [];
-            for (var j=0; j<data.length; j++) {
+    let allTextLines = text.split(/\r\n|\n/);
+    let lines = [];
+    for (let i=0; i<allTextLines.length; i++) {
+        let data = allTextLines[i].split(',');
+            let tarr = [];
+            for (let j=0; j<data.length; j++) {
                 tarr.push(data[j]);
             }
             lines.push(tarr);
     }
     this.excelData = lines;
   }
-
-  
-  postDataToAzure(lines) {
-    console.log(lines);
-  }
-
 
 }
