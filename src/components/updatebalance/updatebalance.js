@@ -62,6 +62,10 @@ export class UpdateBalance {
       this.transactionService.getAll(params)
         .then(response => {
           this.transactions = response;
+
+          this.transactions.forEach(element => {
+            element.month = moment(month+1, 'MM').format('MMMM');
+          });
           this.monthString =  moment(month+1, 'MM').format('MMMM');
         })
 
