@@ -30,10 +30,12 @@ export class TransactionService {
     } else {
       // Otherwise, create a new transaction
       return this.apiService.post('/api/transactions/', transaction.transaction)
-        .then(data => data.transaction)
     }
   }
   
-
+  saveExcelBalanceData(excelData) {
+    return this.apiService.post('/api/transactions/excelData', excelData)
+        .then(data => data.transaction)
+  }
   
 }

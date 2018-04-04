@@ -1,4 +1,5 @@
 import {inject} from 'aurelia-dependency-injection';
+import {json} from 'aurelia-fetch-client';
 import {TransactionService} from "../../shared/services/transactionservice";
 import {SharedState} from '../../shared/state/sharedstate';
 import {AccountService} from "../../shared/services/accountservice";
@@ -20,8 +21,9 @@ export class UpdateBalance {
     { id:9, name:"October"},
     { id:10, name:"November"},
     { id:11, name:"December"}
-    
   ]
+  excelData = [];
+
   constructor(transactionService, accountService, sharedState){
     this.transactionService = transactionService;
     this.accountService = accountService;
@@ -33,10 +35,12 @@ export class UpdateBalance {
   }
 
   attached(){
+
     if(this.sharedState.currentUser.role=='ADMIN'){
       this.getAllAccounts();
       this.getAll(this.year, this.month);
     }
+
   }
 
   getAllAccounts(){
@@ -104,6 +108,82 @@ export class UpdateBalance {
       this.getAll(this.year, this.month)
 
     })
+  }
+
+  upload(files) {
+    let disp = document.getElementById('fileDisplayArea');
+    console.log(disp.innerText)
+    this.convertTextToArray(disp.innerText);
+    console.log(this.excelData);
+    let month = this.excelData[0][1]
+    let year = this.excelData[1][1]
+    let RandD = this.excelData[3][1]
+    let Canteen = this.excelData[4][1]
+    let CEOCar = this.excelData[5][1]
+    let Marketing = this.excelData[6][1]
+    let ParkingFines = this.excelData[7][1]
+
+    console.log('month : ' + month)
+    console.log('year : ' + year)
+    console.log('RandD : ' + RandD)
+    console.log('Canteen : ' + Canteen)
+    console.log('CEOCar : ' + CEOCar)
+    console.log('Marketing : ' + Marketing)
+    console.log('ParkingFines : ' + ParkingFines)
+
+    let postDate = {
+      month,
+      year,
+      RandD,
+      Canteen,
+      CEOCar,
+      Marketing,
+      ParkingFines
+    }
+
+    this.transactionService.saveExcelBalanceData(postDate)
+    .then(data => {
+      console.log(data)
+      console.log('data enetered');
+    })
+
+  }
+
+
+
+  getAsText(files) {
+		let disp = document.getElementById('fileDisplayArea');
+    if (window.FileReader) {
+      let excelData = '';
+      var reader = new FileReader();
+  
+      reader.onload = function(e) {
+        disp.innerText = reader.result;
+      }
+      reader.readAsText(files[0]);
+    } else {
+        alert('FileReader are not supported in this browser.');
+    }
+
+  }
+
+  convertTextToArray(text) {
+    var allTextLines = text.split(/\r\n|\n/);
+    var lines = [];
+    for (var i=0; i<allTextLines.length; i++) {
+        var data = allTextLines[i].split(',');
+            var tarr = [];
+            for (var j=0; j<data.length; j++) {
+                tarr.push(data[j]);
+            }
+            lines.push(tarr);
+    }
+    this.excelData = lines;
+  }
+
+  
+  postDataToAzure(lines) {
+    console.log(lines);
   }
 
 

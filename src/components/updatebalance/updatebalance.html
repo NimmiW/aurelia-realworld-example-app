@@ -11,8 +11,8 @@
       </div>
     </div>
 
-    <div class="container page" if.bind="sharedState.currentUser.role=='ADMIN'">
-
+    <div class="container page">
+    <!--div class="container page" if.bind="sharedState.currentUser.role=='ADMIN'"-->
       <form>
 
         <div class="form-group">
@@ -101,8 +101,7 @@
           <div class="form-group">
             <label for="file">File:</label>
             <input type="text" value.bind="fileLocation[0].name" placeholder="File location" disabled>
-
-            <input type="file" files.bind="fileLocation" ref="htmlElement" id="fileToUpload" accept=".xls,.xlsx">
+            <input type="file" files.bind="fileLocation" ref="htmlElement" id="fileToUpload"  change.delegate="getAsText(fileLocation)" accept=".csv">
           </div>
           <div class="form-group"></div>
           <button class="btn" click.delegate="upload(fileLocation)">Upload</button>
@@ -113,43 +112,5 @@
   </div>
 
 
-  <!-- Modal -->
-  <div id="editModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Add Balance</h4>
-        </div>
-        <div class="modal-body">
-          <form class="form-inline">
-            <div class="form-group">
-              <label class="sr-only" for="accountName">Account Name</label>
-              <select value.bind="accountId">
-                <option repeat.for="account of accountList" model.bind="account.id">
-                  ${account.accountName}
-                </option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="pwd">Password:</label>
-              <input type="password" class="form-control" id="pwd">
-            </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox"> Remember me</label>
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" click.delegate="addTransaction()">Add</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
+  <pre id="fileDisplayArea"><pre>
 </template>
