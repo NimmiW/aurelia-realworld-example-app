@@ -75,6 +75,12 @@ I have forked from  https://github.com/jadhavajay/aurelia-realworld-example-app 
 **My Repo:**
 https://github.com/NimmiW/aurelia-realworld-example-app
 
+**Scripts are hosted at:**
+http://abvwebclient.azurewebsites.net
+
+**Script repo at**
+https://github.com/NimmiW/AccountBalanceViewerClientScripts
+
 **The Backend API for this could be found at:**
 https://github.com/NimmiW/ABVWebApi
 
@@ -87,7 +93,6 @@ About 60 percent of the workload of the assignment was completed.
 
 **ToDos**
 - Host Aurelia app in an azure app service
-- Role-based Authentication
 - Excel Sheet update part
 - Unit Testing Testing
 
